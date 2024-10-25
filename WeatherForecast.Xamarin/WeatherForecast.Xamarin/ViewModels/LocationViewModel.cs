@@ -22,7 +22,7 @@ namespace WeatherForecast.Xamarin.ViewModels
 
 		public LocationViewModel()
 		{
-			_service = new();
+			_service = new LocationService();
 
 			GetSpecific = new Command(GetSpecificLocation);
 			Clear = new Command(ClearFilters);

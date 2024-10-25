@@ -15,7 +15,7 @@ namespace WeatherForecast.Xamarin.Services
 
         public LocationService()
 		{
-			_http = new();
+			_http = new HttpClient();
 
 			// Using JsonSerializerSettings because this version dont have System.Text.Json
 			// So i'm using Newtonsoft.Json
@@ -32,7 +32,7 @@ namespace WeatherForecast.Xamarin.Services
 
         private async Task<ObservableCollection<LocationDTO>> ApplyInternalLogicForFindAll()
 		{
-			Uri uri = new("https://brasilapi.com.br/api/cptec/v1/cidade");
+			Uri uri = new Uri("https://brasilapi.com.br/api/cptec/v1/cidade");
 
 			try
 			{
@@ -49,7 +49,7 @@ namespace WeatherForecast.Xamarin.Services
 
 		private async Task<ObservableCollection<LocationDTO>> ApplyInternalLogicForFindSpecific(string query)
 		{
-			Uri uri = new($"https://brasilapi.com.br/api/cptec/v1/cidade/{query.Trim()}");
+			Uri uri = new Uri($"https://brasilapi.com.br/api/cptec/v1/cidade/{query.Trim()}");
 
 			try
 			{
