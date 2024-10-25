@@ -7,7 +7,7 @@ namespace WeatherForecast.Xamarin.Models
 		public string Cidade { get; set; }
 		public string Estado { get; set; }
 		public string Atualizado_em { get; set; }
-		IEnumerable<WeatherDTO> Clima { get; set; }
+		public IEnumerable<WeatherDTO> Clima { get; set; }
 	}
 
 	public struct WeatherDTO
