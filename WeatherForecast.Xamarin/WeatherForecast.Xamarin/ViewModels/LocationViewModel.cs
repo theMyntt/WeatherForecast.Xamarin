@@ -39,6 +39,8 @@ namespace WeatherForecast.Xamarin.ViewModels
 
 			GetSpecific = new Command(GetSpecificLocation);
 			Clear = new Command(ClearFilters);
+
+            GetLocations();
 		}
 
 		public async void GetLocations()
