@@ -7,8 +7,13 @@
     x:Class="WeatherForecast.Xamarin.AppShell">
 
     <ShellContent
-        Title="MainPage"
+        Title="Clima"
+        ContentTemplate="{DataTemplate local:ForecastView}"
+        Route="Forecast"/>
+
+    <ShellContent
+        Title="Localizações"
         ContentTemplate="{DataTemplate local:LocationView}"
-        Route="MainPage"/>
+        Route="FindLocations"/>
 </Shell>
 

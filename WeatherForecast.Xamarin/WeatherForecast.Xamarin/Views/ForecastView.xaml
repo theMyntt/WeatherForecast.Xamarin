@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="WeatherForecast.Xamarin.Views.ForecastView">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical">
+                <Frame Margin="10,10,10,10">
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="{Binding Location.Cidade}" FontSize="20"></Label>
+                        <Label Text="{Binding Location.Estado}" FontAttributes="Italic"></Label>
+                        <Label Text="{Binding Location.Clima[0].Condicao_desc}" FontSize="18" />
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="Min:" FontAttributes="Bold" FontSize="24" Margin="0,0,10,0"></Label>
+                            <Label Text="{Binding Location.Clima[0].Min}" FontAttributes="Bold" FontSize="24"></Label>
+                        </StackLayout>
+                        <StackLayout Orientation="Vertical">
+                            <Label Text="Max: " FontAttributes="Bold" FontSize="24" Margin="0,0,10,0"></Label>
+                            <Label Text="{Binding Location.Clima[0].Max}" FontAttributes="Bold" FontSize="24"></Label>
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
+
