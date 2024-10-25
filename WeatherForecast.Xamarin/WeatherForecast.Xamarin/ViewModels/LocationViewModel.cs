@@ -10,10 +10,10 @@ namespace WeatherForecast.Xamarin.ViewModels
     public partial class LocationViewModel : ObservableObject
 	{
 		[ObservableProperty]
-		private ObservableCollection<LocationDTO>? locations;
+		private ObservableCollection<LocationDTO> locations;
 
 		[ObservableProperty]
-		private string? query;
+		private string query;
 
 		private readonly LocationService _service;
 

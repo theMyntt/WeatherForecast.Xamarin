@@ -27,10 +27,10 @@ namespace WeatherForecast.Xamarin.Services
             };
 		}
 
-        public async Task<ObservableCollection<LocationDTO>?> PerformFindAll() => await ApplyInternalLogicForFindAll();
-		public async Task<ObservableCollection<LocationDTO>?> PerformFindSpecific(string query) => await ApplyInternalLogicForFindSpecific(query);
+        public async Task<ObservableCollection<LocationDTO>> PerformFindAll() => await ApplyInternalLogicForFindAll();
+		public async Task<ObservableCollection<LocationDTO>> PerformFindSpecific(string query) => await ApplyInternalLogicForFindSpecific(query);
 
-        private async Task<ObservableCollection<LocationDTO>?> ApplyInternalLogicForFindAll()
+        private async Task<ObservableCollection<LocationDTO>> ApplyInternalLogicForFindAll()
 		{
 			Uri uri = new("https://brasilapi.com.br/api/cptec/v1/cidade");
 
@@ -47,7 +47,7 @@ namespace WeatherForecast.Xamarin.Services
 			}
 		}
 
-		private async Task<ObservableCollection<LocationDTO>?> ApplyInternalLogicForFindSpecific(string query)
+		private async Task<ObservableCollection<LocationDTO>> ApplyInternalLogicForFindSpecific(string query)
 		{
 			Uri uri = new($"https://brasilapi.com.br/api/cptec/v1/cidade/{query.Trim()}");
 
@@ -64,7 +64,7 @@ namespace WeatherForecast.Xamarin.Services
 			}
 		}
 
-		private async Task<ObservableCollection<LocationDTO>?> FormatLocations(HttpResponseMessage response)
+		private async Task<ObservableCollection<LocationDTO>> FormatLocations(HttpResponseMessage response)
 		{
 			var json = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<ObservableCollection<LocationDTO>>(json, _jsonSettings);
