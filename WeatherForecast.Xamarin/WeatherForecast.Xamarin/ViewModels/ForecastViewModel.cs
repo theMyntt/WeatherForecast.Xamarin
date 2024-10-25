@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using WeatherForecast.Xamarin.Models;
 using WeatherForecast.Xamarin.Services;
 
@@ -29,9 +30,10 @@ namespace WeatherForecast.Xamarin.ViewModels
 		public ForecastViewModel()
 		{
             _service = new ForecastService();
+            CityCode = 244;
 		}
 
-        public async void GetLocationForecast()
+        public async Task GetLocationForecast()
         {
             Location = await _service.Perform(CityCode);
         }
