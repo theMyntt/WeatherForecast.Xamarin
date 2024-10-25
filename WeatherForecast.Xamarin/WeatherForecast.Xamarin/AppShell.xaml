@@ -2,13 +2,13 @@
 <Shell
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:WeatherForecast.Xamarin"
+    xmlns:local="clr-namespace:WeatherForecast.Xamarin.Views"
     Shell.FlyoutBehavior="Flyout"
     x:Class="WeatherForecast.Xamarin.AppShell">
 
     <ShellContent
         Title="MainPage"
-        ContentTemplate="{DataTemplate local:MainPage}"
+        ContentTemplate="{DataTemplate local:LocationView}"
         Route="MainPage"/>
 </Shell>
 
