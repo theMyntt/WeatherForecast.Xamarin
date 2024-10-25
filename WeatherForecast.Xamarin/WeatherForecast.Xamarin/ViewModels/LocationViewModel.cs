@@ -32,6 +32,7 @@ namespace WeatherForecast.Xamarin.ViewModels
 
         public ICommand GetSpecific { get; }
 		public ICommand Clear { get; }
+		public ICommand GoToForecast { get; }
 
 		public LocationViewModel()
 		{
@@ -39,6 +40,7 @@ namespace WeatherForecast.Xamarin.ViewModels
 
 			GetSpecific = new Command(GetSpecificLocation);
 			Clear = new Command(ClearFilters);
+			GoToForecast = new Command<int>(NavigateToForecast);
 
             GetLocations();
 		}
