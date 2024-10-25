@@ -9,6 +9,9 @@ using Xamarin.Forms;
 
 namespace WeatherForecast.Xamarin.ViewModels
 {
+	// Why im using INotifyPropertyChanged instead of ObservableObject?
+	// Because at this version of .NET who im working, we cant use CommunityToolkit.MVVM who have [ObservableObject] annotation
+	// :)
     public partial class LocationViewModel : INotifyPropertyChanged 
 	{
 		private ObservableCollection<LocationDTO> locations;
