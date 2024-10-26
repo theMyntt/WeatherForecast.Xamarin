@@ -8,8 +8,11 @@
             <StackLayout Orientation="Vertical">
                 <Frame Margin="10,10,10,10">
                     <StackLayout Orientation="Vertical">
-                        <Label Text="{Binding Location.Cidade}" FontSize="20"></Label>
-                        <Label Text="{Binding Location.Estado}" FontAttributes="Italic"></Label>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Location.Cidade}" FontSize="20"></Label>
+                            <Label Text=""/>
+                            <Label Text="{Binding Location.Estado}" FontAttributes="Italic" FontSize="20"></Label>
+                        </StackLayout>
                         <Label Text="{Binding Location.Clima[0].Condicao_desc}" FontSize="18" />
                         <StackLayout Orientation="Horizontal">
                             <Label Text="Min:" FontAttributes="Bold" FontSize="24" Margin="0,0,0,0"></Label>
