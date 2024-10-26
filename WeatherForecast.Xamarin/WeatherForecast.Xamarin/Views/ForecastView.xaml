@@ -11,14 +11,33 @@
                         <Label Text="{Binding Location.Cidade}" FontSize="20"></Label>
                         <Label Text="{Binding Location.Estado}" FontAttributes="Italic"></Label>
                         <Label Text="{Binding Location.Clima[0].Condicao_desc}" FontSize="18" />
-                        <StackLayout Orientation="Vertical">
-                            <Label Text="Min:" FontAttributes="Bold" FontSize="24" Margin="0,0,10,0"></Label>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Min:" FontAttributes="Bold" FontSize="24" Margin="0,0,0,0"></Label>
                             <Label Text="{Binding Location.Clima[0].Min}" FontAttributes="Bold" FontSize="24"></Label>
                         </StackLayout>
-                        <StackLayout Orientation="Vertical">
-                            <Label Text="Max: " FontAttributes="Bold" FontSize="24" Margin="0,0,10,0"></Label>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Max: " FontAttributes="Bold" FontSize="24" Margin="0,0,0,0"></Label>
                             <Label Text="{Binding Location.Clima[0].Max}" FontAttributes="Bold" FontSize="24"></Label>
                         </StackLayout>
+                    </StackLayout>
+                </Frame>
+                <Frame Margin="10,0,10,10">
+                    <StackLayout Orientation="Vertical">
+                        <Label Text="Previsão para 4 dias" />
+                        <CollectionView ItemsSource="{Binding ForecastForNextDays.Clima}">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Data}" FontAttributes="Bold" />
+                                        <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                            <Label Text="{Binding Min}" />
+                                            <Label Text=" | " />
+                                            <Label Text="{Binding Max}" />
+                                        </StackLayout>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
                     </StackLayout>
                 </Frame>
             </StackLayout>

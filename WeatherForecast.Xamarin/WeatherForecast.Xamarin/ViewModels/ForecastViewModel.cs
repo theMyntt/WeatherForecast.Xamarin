@@ -11,12 +11,19 @@ namespace WeatherForecast.Xamarin.ViewModels
 	public class ForecastViewModel : INotifyPropertyChanged
 	{
         private ForecastDTO _location;
+        private ForecastDTO _forecastForNextDays;
         private int _cityCode;
 
         public ForecastDTO Location
         {
             get => _location;
             set => SetProperty(ref _location, value);
+        }
+
+        public ForecastDTO ForecastForNextDays
+        {
+            get => _forecastForNextDays;
+            set => SetProperty(ref _forecastForNextDays, value);
         }
 
         public int CityCode
@@ -36,6 +43,7 @@ namespace WeatherForecast.Xamarin.ViewModels
         public async Task GetLocationForecast()
         {
             Location = await _service.Perform(CityCode);
+            ForecastForNextDays = await _service.PerformSixDaysForecast(CityCode);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
