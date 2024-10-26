@@ -18,7 +18,7 @@
                     <Button Command="{Binding GetSpecific}" Grid.Column="1" Margin="10,0">
                         <Button.Text>Buscar</Button.Text>
                     </Button>
-                    <Button Command="{Binding ClearSearch}" Grid.Column="2">
+                    <Button Command="{Binding Clear}" Grid.Column="2">
                         <Button.Text>Limpar Filtros</Button.Text>
                     </Button>
                 </Grid>
