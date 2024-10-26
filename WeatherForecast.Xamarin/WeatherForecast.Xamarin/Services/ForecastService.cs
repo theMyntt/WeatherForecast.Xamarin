@@ -26,9 +26,10 @@ namespace WeatherForecast.Xamarin.Services
             };
         }
 
-        public async Task<ForecastDTO> Perform(int cityCode) => await ApplyInternalLogic(cityCode);
+        public async Task<ForecastDTO> Perform(int cityCode) => await ApplyInternalLogicForForecast(cityCode);
+        public async Task<ForecastDTO> PerformSixDaysForecast(int cityCode) => await ApplyInternalLogicForSixDaysForecast(cityCode);
 
-        public async Task<ForecastDTO> ApplyInternalLogic(int cityCode)
+        public async Task<ForecastDTO> ApplyInternalLogicForForecast(int cityCode)
         {
             Uri uri = new Uri($"https://brasilapi.com.br/api/cptec/v1/clima/previsao/{cityCode}");
 
@@ -42,6 +43,25 @@ namespace WeatherForecast.Xamarin.Services
                 var json = await response.Content.ReadAsStringAsync();
                 return JsonConvert.DeserializeObject<ForecastDTO>(json, _jsonSettings);
             } catch(Exception)
+            {
+                return new ForecastDTO();
+            }
+        }
+
+        public async Task<ForecastDTO> ApplyInternalLogicForSixDaysForecast(int cityCode)
+        {
+            Uri uri = new Uri($"https://brasilapi.com.br/api/cptec/v1/clima/previsao/{cityCode}/4");
+
+            try
+            {
+                var response = await _http.GetAsync(uri);
+
+                if (!response.IsSuccessStatusCode)
+                    return new ForecastDTO();
+
+                var json = await response.Content.ReadAsStringAsync();
+                return JsonConvert.DeserializeObject<ForecastDTO>(json, _jsonSettings);
+            } catch (Exception)
             {
                 return new ForecastDTO();
             }
